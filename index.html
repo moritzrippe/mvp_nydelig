@@ -20,7 +20,6 @@
 }
 
     :root {
-      --green: #194026;
       --accent: #eeeeee;
       --white: #ffffff;
       --black: #000000;
@@ -50,8 +49,8 @@
     /* ================= HEADER ================= */
 
     header {
-      backdrop-filter: blur(33px);
-      -webkit-backdrop-filter: blur(33px);
+      backdrop-filter: blur(92px);
+      -webkit-backdrop-filter: blur(92px);
       border-bottom: 5px solid rgba(186, 255, 73, 1);
       padding: 20px 0;
       position: fixed;
@@ -145,9 +144,9 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(238, 238, 238, 0.2);
-      backdrop-filter: blur(23px);
-      -webkit-backdrop-filter: blur(23px);
+      background: rgba(238, 238, 238, 0.3);
+      backdrop-filter: blur(33px);
+      -webkit-backdrop-filter: blur(33px);
       z-index: 1050;
       flex-direction: column;
       justify-content: center;
@@ -194,7 +193,7 @@
     }
 
     main {
-      padding: 40px 32px 64px 32px;
+      padding: 10px 32px 10px 32px;
     }
 
     /* ================= GRID ================= */
@@ -207,7 +206,7 @@
 
   justify-content: center;
 
-  padding-top: 40px;
+  padding-top: 0px;
 
 }
 
@@ -219,9 +218,9 @@
 
   text-align: center;
 
-  color: var(--green);
+  color: var(--black);
 
-  background-color: var(--white);
+  background-color: var(--accent);
 
 }
 
@@ -240,8 +239,9 @@
    .product-card .title {
 
   margin-top: 16px;
+  margin-bottom: 0px;
 
-  font-size: 24px;
+  font-size: 20px;
 
   font-weight: 600;
 
@@ -252,26 +252,33 @@
       padding: 80px 24px;
       text-align: center;
       font-size: 10px;
-      color: var(--green);
+      color: var(--black);
       border-top: none;
     }
 
-.about-section {
-  max-width: 1200px;
-  margin: 120px auto 0 auto;
-  padding: 0 32px;
+
+.author-link {
+  color: var(--black);
+  text-decoration: underline;
+  font-weight: 600;
 }
 
-.about-heading {
-  font-size: 28px;
-  margin-bottom: 44px;
+.author-link:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+.about-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
 }
 
 .about-text {
   max-width: 700px;
   margin: 0 auto;
   text-align: left;
-    background-color: var(--white);
+  background-color: var(--white);
   padding: 32px;
 }
 
@@ -292,10 +299,7 @@
     margin: 24px auto 0 auto;
     padding: 0 16px;
   }
-  .about-heading {
-    font-size: 18px;
-    margin-bottom: 14px;
-  }
+
   .about-text {
     max-width: 700px;
     font-family: 'copy';
@@ -309,19 +313,27 @@
     padding-top: 40px;
     overflow-x: hidden;
   }
+
   .collection-heading {
     font-size: 18px;
-    margin: 24px auto 0 auto;
+    /* Margin-bottom auf 8px gesetzt, um den Abstand zum Grid zu definieren */
+    margin: 24px auto 8px auto; 
     padding: 0 16px;
   }
+
   main {
-    padding: 24px 16px 64px 16px;
+    /* Padding-top auf 0 gesetzt, falls die Überschrift innerhalb von main liegt */
+    padding: 0px 16px 10px 16px;
   }
+
   .grid { 
     grid-template-columns: 1fr 1fr;
     gap: 12px;
     max-width: 100%;
+    /* Sicherstellen, dass kein zusätzlicher oberer Margin den Abstand vergrößert */
+    margin-top: 0; 
   }
+
   .product-card {
     padding: 12px;
   }
@@ -384,9 +396,9 @@
 
     <div class="product-card">
 
-      <img src="images/schale.jpg" alt="Produkt 01" draggable="false">
+      <img src="images/recipe_of_day.jpg" alt="Gericht" draggable="false">
 
-      <div class="title">Käsespätzle</div>
+      <div class="title">Pasta Amatriciana</div>
 
     </div>
 
@@ -394,20 +406,24 @@
 </main>
 <section class="about-section">
 
-  <div class="about-heading">
-    Zubereitung
-  </div>
-
   <div class="about-text">
-    <p>Thoma & Co. ist aus einer Freundschaft und einem gemeinsamen Fundament entstanden: Wir sind in einem Umfeld aufgewachsen, in dem Gestaltung, Materialbewusstsein und handwerkliche Arbeit zum Alltag gehörten.</p>
+    <p>
+    Angaben für 2 Personen <br><br> 
+    Zutaten: <br>
+    Pennenudeln 200g <br>
+    Guanciale, Stück<br>
+    1 Dose stückige Tomaten<br>
+    Parmesan<br><br>
+    Zubereitung:<br>
+    Als erstes kommt der Guanciale in einen heißen Topf und wird dort angebraten. 
+    Anschließend wird er herausgenommen und zum entstandenen Fett kommen nun die Stückigen Tomaten.
+    Die köchelt dort nun bei geschlossenem Topf für ca. 30 min.
+    Anschließend wird die Pasta hinzugegeben und mit Deckel dann noch einmal für ca. 25 min. gekocht.<br><br>
 
-    <p>An einer privaten Schule, die das Arbeiten mit den Händen ebenso förderte wie das Denken, haben wir früh gelernt, wie eng Form, Funktion und Gefühl miteinander verbunden sind.</p>
+    Autor: <a href="https://instagram.com/mouleina" target="_blank" class="author-link">Augusta Rippe</a><br>
 
-    <p>Diese Prägung begleitet uns bis heute, sie ist der Ursprung unserer Gestaltung.</p>
-
-    <p>Thoma & Co. fertigt Objekte mit klarer Formensprache, in kleinen Serien und mit hoher Sorgfalt. Wir arbeiten direkt mit dem Material, entwickeln jedes Stück selbst und achten darauf, dass der Prozess sichtbar bleibt.</p>
-
-    <p>Unsere Objekte entstehen in Deutschland. Was zählt, ist das Zusammenspiel aus Idee, Material und Handwerk.</p>
+    
+    </p>
   </div>
 
 </section>
