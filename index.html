@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouleina</title>
+  <link rel="icon" type="image/png" href="fav.png">
+  <meta name="theme-color" content="#baff49">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <style>
+    @font-face {
+      font-family: 'head';
+      src: url('fonts/head.otf') format('opentype');
+    }
+
+        @font-face {
+  font-family: 'copy';
+  src: url('fonts/copy.otf') format('opentype');
+}
+
+    :root {
+      --green: #194026;
+      --accent: #eeeeee;
+      --white: #ffffff;
+      --black: #000000;
+      --spicy_green: #baff49;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background-color: var(--accent);
+      font-family: 'head', serif;
+      color: var(--black);
+      min-height: 100vh;
+    }
+
+    img {
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      background: rgba(186, 255, 73, 0.75);
+      backdrop-filter: blur(33px);
+      -webkit-backdrop-filter: blur(33px);
+      padding: 20px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+ nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      line-height: 1;
+    }
+
+    .logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .logo img {
+      height: 15px;
+      display: block;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      right: 32px;
+    }
+
+    nav a {
+      margin-left: 32px;
+      text-decoration: none;
+      font-size: 15px;
+      color: var(--black);
+    }
+
+    .social-icon img {
+      width: 15px;
+      height: auto;
+      display: block;
+    }
+
+    .collection-heading {
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    padding: 0 32px;
+    color: var(--black);
+    font-size: 28px;
+    }
+
+    /* ================= BURGER ================= */
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      position: absolute;
+      right: 32px;
+      z-index: 1100;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .burger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: var(--black);
+    }
+
+    /* ================= SIDE MENU ================= */
+
+    .side-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(186, 255, 73, 0.33);
+      backdrop-filter: blur(33px);
+      -webkit-backdrop-filter: blur(23px);
+      z-index: 1050;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .side-menu.open {
+      display: flex;
+    }
+
+    .side-menu a {
+      text-decoration: none;
+      font-size: 17px;
+      color: var(--black);
+      font-family: 'head', serif;
+    }
+
+    .side-menu a:hover {
+      opacity: 0.7;
+    }
+
+    .side-menu-close {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      position: fixed;
+      top: 2.5px;
+      right: 32px;
+      z-index: 1060;
+      background: none;
+      border: none;
+      padding: 0;
+      height: 35px;
+    }
+
+    .side-menu-close span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: var(--black);
+    }
+
+    main {
+      padding: 40px 32px 64px 32px;
+    }
+
+    /* ================= GRID ================= */
+
+    .grid {
+
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  padding-top: 40px;
+
+}
+
+    /* ================= PRODUKTKARTE ================= */
+
+   .product-card {
+
+  width: 500px;
+
+  text-align: center;
+
+  color: var(--green);
+
+  background-color: var(--white);
+
+}
+
+ .product-card img {
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
+  object-fit: cover;
+
+  display: block;
+
+}
+
+   .product-card .title {
+
+  margin-top: 16px;
+
+  font-size: 24px;
+
+  font-weight: 600;
+
+}
+
+    footer {
+      margin-top: 120px;
+      padding: 80px 24px;
+      text-align: center;
+      font-size: 10px;
+      color: var(--green);
+      border-top: none;
+    }
+
+.about-section {
+  max-width: 1200px;
+  margin: 120px auto 0 auto;
+  padding: 0 32px;
+}
+
+.about-heading {
+  font-size: 28px;
+  margin-bottom: 44px;
+}
+
+.about-text {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+    background-color: var(--white);
+  padding: 32px;
+}
+
+.about-text p {
+  font-family: 'copy';
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+  @media (max-width: 900px) {
+  .nav-right { display: none; }
+  .burger { display: flex; }
+  .logo img { height: 14px; }
+  nav a { margin-left: 17px; font-size: 15px; }
+  body { padding-top: 40px; }
+  .collection-heading {
+    font-size: 18px;
+    margin: 24px auto 0 auto;
+    padding: 0 16px;
+  }
+  .about-heading {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+  .about-text {
+    max-width: 700px;
+    font-family: 'copy';
+    line-height: 1.6;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  body { 
+    padding-top: 40px;
+    overflow-x: hidden;
+  }
+  .collection-heading {
+    font-size: 18px;
+    margin: 24px auto 0 auto;
+    padding: 0 16px;
+  }
+  main {
+    padding: 24px 16px 64px 16px;
+  }
+  .grid { 
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 100%;
+  }
+  .product-card {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 335px) {
+  .logo img { height: 12px; }
+  nav a { margin-left: 10px; font-size: 15px; }
+  body { padding-top: 40px; }
+  .collection-heading {
+    font-size: 15px;
+    margin: 24px auto 0 auto;
+    padding: 0 20px;
+  }
+}
+    
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="logo">
+      <img src="logo.png" alt="Logo" draggable="false">
+    </div>
+
+    <div class="nav-right">
+      <a href="index.html" class="active">Rezept einreichen</a>
+      <a href="all_recipes.html">Alle Rezepte</a>
+      <a href="commercial.html">Werbepartner</a>
+      <a href="https://www.instagram.com/mouleina/" target="_blank" class="social-icon">
+        <img src="social.png" alt="Instagram" draggable="false">
+      </a>
+    </div>
+
+    <button class="burger" id="burgerBtn" aria-label="Menü öffnen">
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
+
+<div class="side-menu" id="sideMenu">
+  <button class="side-menu-close" id="menuClose" aria-label="Menü schließen">
+    <span></span>
+    <span></span>
+  </button>
+  <a href="index.html">Rezept einreichen</a>
+  <a href="all_recipes.html">Alle Rezepte</a>
+  <a href="commercial.html">Werbepartner</a>
+  <a href="https://www.instagram.com/mouleina/" target="_blank">Instagram</a>
+</div>
+
+<div class="collection-heading">
+  Rezept des Tages
+</div>
+<main>
+  <section class="grid">
+
+    <div class="product-card">
+
+      <img src="images/schale.jpg" alt="Produkt 01" draggable="false">
+
+      <div class="title">Käsespätzle</div>
+
+    </div>
+
+  </section>
+</main>
+<section class="about-section">
+
+  <div class="about-heading">
+    Zubereitung
+  </div>
+
+  <div class="about-text">
+    <p>Thoma & Co. ist aus einer Freundschaft und einem gemeinsamen Fundament entstanden: Wir sind in einem Umfeld aufgewachsen, in dem Gestaltung, Materialbewusstsein und handwerkliche Arbeit zum Alltag gehörten.</p>
+
+    <p>An einer privaten Schule, die das Arbeiten mit den Händen ebenso förderte wie das Denken, haben wir früh gelernt, wie eng Form, Funktion und Gefühl miteinander verbunden sind.</p>
+
+    <p>Diese Prägung begleitet uns bis heute, sie ist der Ursprung unserer Gestaltung.</p>
+
+    <p>Thoma & Co. fertigt Objekte mit klarer Formensprache, in kleinen Serien und mit hoher Sorgfalt. Wir arbeiten direkt mit dem Material, entwickeln jedes Stück selbst und achten darauf, dass der Prozess sichtbar bleibt.</p>
+
+    <p>Unsere Objekte entstehen in Deutschland. Was zählt, ist das Zusammenspiel aus Idee, Material und Handwerk.</p>
+  </div>
+
+</section>
+<footer>
+  Copyright © 2026 Mouleina. Alle Rechte vorbehalten.
+</footer>
+
+<script>
+  const burgerBtn = document.getElementById('burgerBtn');
+  const menuClose = document.getElementById('menuClose');
+  const sideMenu = document.getElementById('sideMenu');
+
+  burgerBtn.addEventListener('click', function () {
+    sideMenu.classList.add('open');
+  });
+
+  menuClose.addEventListener('click', function () {
+    sideMenu.classList.remove('open');
+  });
+</script>
+
+</body>
+</html>
