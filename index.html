@@ -286,6 +286,30 @@
   line-height: 1.6;
 }
 
+.ad-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.ad-container a {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+}
+
+.ad-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+
+
   @media (max-width: 900px) {
   .nav-right { display: none; }
   .burger { display: flex; }
@@ -319,6 +343,16 @@
     padding: 0 16px;
   }
 
+ .ad-container {
+    padding: 0;         /* Entfernt die seitlichen Abstände */
+    margin: 24px 0;     /* Abstand nur noch oben/unten */
+    max-width: 100%;    /* Erlaubt volle Breite */
+  }
+
+  .ad-container a {
+    max-width: 100%;    /* Link nutzt volle Breite */
+  }
+
   main {
     /* Padding-top auf 0 gesetzt, falls die Überschrift innerhalb von main liegt */
     padding: 0px 16px 10px 16px;
@@ -328,7 +362,6 @@
     grid-template-columns: 1fr 1fr;
     gap: 12px;
     max-width: 100%;
-    /* Sicherstellen, dass kein zusätzlicher oberer Margin den Abstand vergrößert */
     margin-top: 0; 
   }
 
@@ -422,6 +455,13 @@
   </div>
 
 </section>
+
+<section class="ad-container">
+  <a href="https://www.moritzrip.pe" target="_blank">
+    <img src="images/ads/800x250_banner1.jpg" alt="Werbung" draggable="false">
+  </a>
+</section>
+
 <footer>
   Copyright © 2026 Mouleina. Alle Rechte vorbehalten.
 </footer>
