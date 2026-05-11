@@ -19,6 +19,11 @@
   src: url('fonts/copy.otf') format('opentype');
 }
 
+      @font-face {
+  font-family: 'copy_bold';
+  src: url('fonts/copy_bold.otf') format('opentype');
+}
+
     :root {
       --accent: #eeeeee;
       --white: #ffffff;
@@ -218,7 +223,7 @@
 
   text-align: center;
 
-  color: var(--black);
+  color: var(--white);
 
   background-color: var(--accent);
 
@@ -241,11 +246,14 @@
    .product-card .title {
 
   margin-top: 16px;
-  margin-bottom: 0px;
-
-  font-size: 20px;
-
-  font-weight: 600;
+  margin-bottom: 5px;
+  font-size: 18px;
+  background-color: black; 
+  color: white;        
+  
+  display: inline-block;
+  padding: 10px 30px;   
+  border-radius: 50px
 
 }
 
@@ -338,23 +346,21 @@
 
   .collection-heading {
     font-size: 18px;
-    /* Margin-bottom auf 8px gesetzt, um den Abstand zum Grid zu definieren */
     margin: 24px auto 8px auto; 
     padding: 0 16px;
   }
 
  .ad-container {
-    padding: 0;         /* Entfernt die seitlichen Abstände */
-    margin: 24px 0;     /* Abstand nur noch oben/unten */
-    max-width: 100%;    /* Erlaubt volle Breite */
+    padding: 0;    
+    margin: 24px 0;  
+    max-width: 100%;
   }
 
   .ad-container a {
-    max-width: 100%;    /* Link nutzt volle Breite */
+    max-width: 100%;   
   }
 
   main {
-    /* Padding-top auf 0 gesetzt, falls die Überschrift innerhalb von main liegt */
     padding: 0px 16px 10px 16px;
   }
 
@@ -368,6 +374,12 @@
   .product-card {
     padding: 12px;
   }
+
+     .product-card .title {
+
+  font-size: 16px;
+
+}
 }
 
 @media (max-width: 335px) {
@@ -424,35 +436,42 @@
 </div>
 <main>
   <section class="grid">
-
-    <div class="product-card">
-
-      <img src="images/recipe_of_day.jpg" alt="Gericht" draggable="false">
-
-      <div class="title">Pasta Amatriciana</div>
-
-    </div>
-
-  </section>
+  <div class="product-card">
+    <img src="images/recipe_of_day.jpg" alt="Gericht" draggable="false">
+    
+    <div class="title" style="font-family: 'copy_bold';">Pasta Amatriciana</div>
+  </div>
+</section>
 </main>
 <section class="about-section">
 
-  <div class="about-text">
-    <p>
-    Autor: <a href="https://instagram.com/mouleina" target="_blank" class="author-link">Augusta Rippe</a><br>
-    Angaben für 2 Personen <br><br> 
-    Zutaten: <br>
-    Pennenudeln 200g <br>
-    Guanciale, Stück<br>
-    1 Dose stückige Tomaten<br>
-    Parmesan<br><br>
-    Zubereitung:<br>
-    Als erstes kommt der Guanciale in einen heißen Topf und wird dort angebraten. 
-    Anschließend wird er herausgenommen und zum entstandenen Fett kommen nun die Stückigen Tomaten.
-    Die köchelt dort nun bei geschlossenem Topf für ca. 30 min.
-    Anschließend wird die Pasta hinzugegeben und mit Deckel dann noch einmal für ca. 25 min. gekocht.
-    </p>
-  </div>
+<div class="about-text">
+  <p>
+    <span style="font-family: 'copy_bold';">
+      Autor: <a href="https://instagram.com/mouleina" target="_blank" class="author-link" style="font-family: 'copy_bold';">Augusta Rippe</a><br><br>
+      Zubereitungsdauer: ca. 50 min. <br><br>
+      Zutaten für 2 Portionen: <br>
+    </span>
+
+    <span style="font-family: 'copy';">
+      Pennenudeln 200g <br>
+      Guanciale, Stück<br>
+      1 Dose stückige Tomaten<br>
+      Parmesan<br><br>
+    </span>
+
+    <span style="font-family: 'copy_bold';">
+      Zubereitung:<br>
+    </span>
+
+    <span style="font-family: 'copy';">
+      Als erstes kommt der Guanciale in einen heißen Topf und wird dort angebraten. 
+      Anschließend wird er herausgenommen und zum entstandenen Fett kommen nun die Stückigen Tomaten. 
+      Die köchelt dort nun bei geschlossenem Topf für ca. 30 min.
+      Anschließend wird die Pasta hinzugegeben und mit Deckel dann noch einmal für ca. 25 min. gekocht.
+    </span>
+  </p>
+</div>
 
 </section>
 
