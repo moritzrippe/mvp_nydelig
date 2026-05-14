@@ -76,18 +76,23 @@
     }
 
     .logo {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      align-items: center;
-      height: 100%;
-    }
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: 0 !important;
+  text-decoration: none;
+  pointer-events: auto; 
+  z-index: 1010;
+}
 
-    .logo img {
-      height: 15px;
-      display: block;
-    }
+  .logo img {
+  height: 15px;
+  display: block;
+  pointer-events: auto;
+}
 
     .nav-right {
       display: flex;
@@ -203,46 +208,34 @@
 
     /* ================= GRID ================= */
 
-    .grid {
-
-  width: 100%;
-
-  display: flex;
-
-  justify-content: center;
-
-  padding-top: 0px;
-
-}
+ .grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
 
     /* ================= Photo ================= */
 
-   .photo {
 
-  width: 500px;
+    .photo {
+      text-decoration: none;
+      background-color: var(--accent);
+      padding: 20px;
+      transition: transform 0.2s ease;
+    }
 
-  text-align: center;
+    .photo:hover { transform: translateY(-2px); }
 
-  color: var(--black);
-
-  background-color: var(--accent);
-
-}
-
- .photo img {
-
-  width: 100%;
-
-  aspect-ratio: 1 / 1;
-
-  object-fit: cover;
-
-  display: block;
-  background-color: var(--spicy_green);
-
-  border-radius: 32px;
-
-}
+    .photo img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background-color: var(--spicy_green);
+      display: block;
+      border-radius: 32px;
+    }
 
    .photo .title {
 
@@ -251,7 +244,6 @@
   font-size: 18px;
   background-color: black; 
   color: white;        
-  
   display: inline-block;
   padding: 10px 30px;   
   border-radius: 50px
@@ -274,27 +266,6 @@
   font-weight: 600;
 }
 
-.preparation-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 32px;
-}
-
-.preparation-text {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: left;
-  background-color: var(--white);
-  padding: 32px;
-  border-radius: 32px;
-}
-
-.preparation-text p {
-  font-family: 'copy';
-  font-size: 16px;
-  line-height: 1.6;
-}
-
   @media (max-width: 900px) {
   .nav-right { display: none; }
   .burger { display: flex; }
@@ -305,13 +276,6 @@
     font-size: 18px;
     margin: 24px auto 0 auto;
     padding: 0 16px;
-  }
-
-  .preparation-text {
-    max-width: 700px;
-    font-family: 'copy';
-    line-height: 1.6;
-    font-size: 16px;
   }
 }
 
@@ -334,7 +298,7 @@
 
   .grid { 
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 10px;
     max-width: 100%;
     margin-top: 0; 
   }
@@ -343,13 +307,15 @@
     padding: 12px;
   }
 
-     .photo .title {
+ .photo .title {
 
-  font-size: 16px;
-
+  margin-top: 2px;
+  margin-bottom: 0px;
+  font-size: 15px;
+  background-color: var(--accent); 
+  color: black;  
 }
 }
-
 @media (max-width: 335px) {
   .logo img { height: 12px; }
   nav a { margin-left: 10px; font-size: 15px; }
@@ -368,12 +334,12 @@
 
 <header>
   <nav>
-    <div class="logo">
-      <img src="logo.png" alt="Logo" draggable="false">
-    </div>
+    <a href="index.html" class="logo">
+    <img src="logo.png" alt="Logo" draggable="false">
+  </a>
 
     <div class="nav-right">
-      <a href="submit.html" class="active">Rezept einreichen</a>
+      <a href="index.html" class="active">Rezept einreichen</a>
       <a href="all_recipes.html">Alle Rezepte</a>
       <a href="mailto:info@mouleina.com?subject=Ich%20möchte%20Werbepartner%20werden">Werbepartner</a>
       <a href="https://www.instagram.com/mouleina/" target="_blank" class="social-icon">
@@ -393,55 +359,43 @@
     <span></span>
     <span></span>
   </button>
-  <a href="submit.html">Rezept einreichen</a>
+  <a href="index.html">Rezept einreichen</a>
   <a href="all_recipes.html">Alle Rezepte</a>
   <a href="mailto:info@mouleina.com?subject=Ich%20möchte%20Werbepartner%20werden">Werbepartner</a>
   <a href="https://www.instagram.com/mouleina/" target="_blank">Instagram</a>
 </div>
 
 <div class="title-heading">
-  Rezept des Tages
+  Rezept einreichen
 </div>
 <main>
-  <section class="grid">
-  <div class="photo">
-    <img src="images/recipe_of_day.jpg" alt="Gericht" draggable="false">
-    
-    <div class="title" style="font-family: 'copy_bold';">Pasta Amatriciana</div>
-  </div>
-</section>
-</main>
-<section class="preparation-section">
+  <section class="preparation-section">
 
 <div class="preparation-text">
   <p>
-    <span style="font-family: 'copy_bold';">
-      Autor: <a href="https://instagram.com/mouleina" target="_blank" class="author-link" style="font-family: 'copy_bold';">Augusta Rippe</a><br><br>
-      Zubereitungsdauer: ca. 50 min. <br><br>
-      Zutaten für 2 Portionen: <br>
-    </span>
-
     <span style="font-family: 'copy';">
-      Pennenudeln 200g <br>
-      Guanciale, Stück<br>
-      1 Dose stückige Tomaten<br>
-      Parmesan<br><br>
+      Hier kannst du deine Rezepte einreichen und ein Teil der Community werden. <br><br><br>
     </span>
 
     <span style="font-family: 'copy_bold';">
-      Zubereitung:<br>
-    </span>
-
-    <span style="font-family: 'copy';">
-      Als erstes kommt der Guanciale in einen heißen Topf und wird dort angebraten. 
-      Anschließend wird er herausgenommen und zum entstandenen Fett kommen nun die Stückigen Tomaten. 
-      Die köchelt dort nun bei geschlossenem Topf für ca. 30 min.
-      Anschließend wird die Pasta hinzugegeben und mit Deckel dann noch einmal für ca. 25 min. gekocht.
-    </span>
+    <a href="mailto:info@mouleina.com?subject=Dieses%20Rezept%20m%C3%B6chte%20ich%20auf%20mouleina.com%20ver%C3%B6ffentlichen&body=Titel%3A%20%0A%0AZubereitungszeit%3A%0A%0AZutaten
+      %20f%C3%BCr%20%5B%20%20%5D%20Personen%3A%0A%0A%0A%0A%0A%0A%0AZubereitung%3A%0A%0A%0A%0A%0A%0A%0ADein%20Name%3A%0ADein%20Instagram%3A%0A%0A%0A%0AFoto%3A%0A%0A%0A%0A%0A
+      --------------------------------------------------%0A%0AMit%20dem%20Absenden%20dieser%20Email%20erlaube%20ich%20Mouleina%20die%20Ver%C3%B6ffentlichung%20des%20Rezeptes
+      %2C%20meines%20Namens%20sowie%20meines%20Instagram-Benutzernamens%20auf%20mouleina.com%20und%20den%20offiziellen%20Kan%C3%A4len%20von%20Mouleina.%0A%0AIch%20best%C3%A4tige
+      %20au%C3%9Ferdem%2C%20dass%20ich%20der%20tats%C3%A4chliche%20Autor%20bzw.%20die%20tats%C3%A4chliche%20Autorin%20des%20eingesendeten%20Rezeptes%20bin%20und%20%C3%BCber
+      %20alle%20erforderlichen%20Rechte%20zur%20Ver%C3%B6ffentlichung%20verf%C3%BCge.%0A%0AMouleina%20erh%C3%A4lt%20das%20nicht-exklusive%20Recht%2C%20das%20Rezept%20in%20bearbeiteter
+      %20oder%20unbearbeiteter%20Form%20zu%20ver%C3%B6ffentlichen%2C%20darzustellen%20und%20zu%20bewerben.%0A%0A%0ACopyright%20%C2%A9%20Mouleina." 
+       target="_blank" 
+       class="author-link" 
+       style="font-family: 'copy_bold';">
+       Jetzt einreichen <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </a>
+</span>
   </p>
 </div>
 
 </section>
+</main>
 
 <footer style="font-family: 'copy';">
   Copyright © 2026 Mouleina. Alle Rechte vorbehalten.

@@ -76,18 +76,23 @@
     }
 
     .logo {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      align-items: center;
-      height: 100%;
-    }
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: 0 !important;
+  text-decoration: none;
+  pointer-events: auto; 
+  z-index: 1010;
+}
 
-    .logo img {
-      height: 15px;
-      display: block;
-    }
+  .logo img {
+  height: 15px;
+  display: block;
+  pointer-events: auto;
+}
 
     .nav-right {
       display: flex;
@@ -203,46 +208,34 @@
 
     /* ================= GRID ================= */
 
-    .grid {
-
-  width: 100%;
-
-  display: flex;
-
-  justify-content: center;
-
-  padding-top: 0px;
-
-}
+ .grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
 
     /* ================= Photo ================= */
 
-   .photo {
 
-  width: 500px;
+    .photo {
+      text-decoration: none;
+      background-color: var(--accent);
+      padding: 20px;
+      transition: transform 0.2s ease;
+    }
 
-  text-align: center;
+    .photo:hover { transform: translateY(-2px); }
 
-  color: var(--black);
-
-  background-color: var(--accent);
-
-}
-
- .photo img {
-
-  width: 100%;
-
-  aspect-ratio: 1 / 1;
-
-  object-fit: cover;
-
-  display: block;
-  background-color: var(--spicy_green);
-
-  border-radius: 32px;
-
-}
+    .photo img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background-color: var(--spicy_green);
+      display: block;
+      border-radius: 32px;
+    }
 
    .photo .title {
 
@@ -251,7 +244,6 @@
   font-size: 18px;
   background-color: black; 
   color: white;        
-  
   display: inline-block;
   padding: 10px 30px;   
   border-radius: 50px
@@ -274,27 +266,6 @@
   font-weight: 600;
 }
 
-.preparation-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 32px;
-}
-
-.preparation-text {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: left;
-  background-color: var(--white);
-  padding: 32px;
-  border-radius: 32px;
-}
-
-.preparation-text p {
-  font-family: 'copy';
-  font-size: 16px;
-  line-height: 1.6;
-}
-
   @media (max-width: 900px) {
   .nav-right { display: none; }
   .burger { display: flex; }
@@ -305,13 +276,6 @@
     font-size: 18px;
     margin: 24px auto 0 auto;
     padding: 0 16px;
-  }
-
-  .preparation-text {
-    max-width: 700px;
-    font-family: 'copy';
-    line-height: 1.6;
-    font-size: 16px;
   }
 }
 
@@ -334,7 +298,7 @@
 
   .grid { 
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 10px;
     max-width: 100%;
     margin-top: 0; 
   }
@@ -343,13 +307,15 @@
     padding: 12px;
   }
 
-     .photo .title {
+ .photo .title {
 
-  font-size: 16px;
-
+  margin-top: 2px;
+  margin-bottom: 0px;
+  font-size: 15px;
+  background-color: var(--accent); 
+  color: black;  
 }
 }
-
 @media (max-width: 335px) {
   .logo img { height: 12px; }
   nav a { margin-left: 10px; font-size: 15px; }
@@ -368,9 +334,9 @@
 
 <header>
   <nav>
-    <div class="logo">
-      <img src="logo.png" alt="Logo" draggable="false">
-    </div>
+    <a href="index.html" class="logo">
+    <img src="logo.png" alt="Logo" draggable="false">
+  </a>
 
     <div class="nav-right">
       <a href="submit.html" class="active">Rezept einreichen</a>
@@ -400,48 +366,42 @@
 </div>
 
 <div class="title-heading">
-  Rezept des Tages
+  Alle Rezepte
 </div>
 <main>
   <section class="grid">
-  <div class="photo">
-    <img src="images/recipe_of_day.jpg" alt="Gericht" draggable="false">
-    
-    <div class="title" style="font-family: 'copy_bold';">Pasta Amatriciana</div>
-  </div>
-</section>
+
+   <a href="Gericht-01.html" class="photo">
+  <img src="images/g1.jpg" alt="Gericht 01" draggable="false">
+  <div class="title" style="font-family: 'copy_bold', sans-serif;">Kalbsfleisch an Spargel</div>
+</a>
+
+<a href="Gericht-02.html" class="photo">
+  <img src="images/g2.jpg" alt="Gericht 02" draggable="false">
+  <div class="title" style="font-family: 'copy_bold', sans-serif;">Rührei- Avocadobrot</div>
+</a>
+
+<a href="Gericht-03.html" class="photo">
+  <img src="images/g3.jpg" alt="Gericht 03" draggable="false">
+  <div class="title" style="font-family: 'copy_bold', sans-serif;">Käsespätzle</div>
+</a>
+
+<a href="Gericht-04.html" class="photo">
+  <img src="images/g4.jpg" alt="Gericht 04" draggable="false">
+  <div class="title" style="font-family: 'copy_bold', sans-serif;">Amatriciana</div>
+</a>
+
+<a href="Gericht-05.html" class="photo">
+  <img src="images/g5.jpg" alt="Gericht 05" draggable="false">
+  <div class="title" style="font-family: 'copy_bold', sans-serif;">Pancakes</div>
+</a>
+
+<a href="Gericht-06.html" class="photo">
+  <img src="images/g6.jpg" alt="Gericht 06" draggable="false">
+  <div class="title" style="font-family: 'copy_bold', sans-serif;">Vegetarische Nudeln</div>
+</a>
+  </section>
 </main>
-<section class="preparation-section">
-
-<div class="preparation-text">
-  <p>
-    <span style="font-family: 'copy_bold';">
-      Autor: <a href="https://instagram.com/mouleina" target="_blank" class="author-link" style="font-family: 'copy_bold';">Augusta Rippe</a><br><br>
-      Zubereitungsdauer: ca. 50 min. <br><br>
-      Zutaten für 2 Portionen: <br>
-    </span>
-
-    <span style="font-family: 'copy';">
-      Pennenudeln 200g <br>
-      Guanciale, Stück<br>
-      1 Dose stückige Tomaten<br>
-      Parmesan<br><br>
-    </span>
-
-    <span style="font-family: 'copy_bold';">
-      Zubereitung:<br>
-    </span>
-
-    <span style="font-family: 'copy';">
-      Als erstes kommt der Guanciale in einen heißen Topf und wird dort angebraten. 
-      Anschließend wird er herausgenommen und zum entstandenen Fett kommen nun die Stückigen Tomaten. 
-      Die köchelt dort nun bei geschlossenem Topf für ca. 30 min.
-      Anschließend wird die Pasta hinzugegeben und mit Deckel dann noch einmal für ca. 25 min. gekocht.
-    </span>
-  </p>
-</div>
-
-</section>
 
 <footer style="font-family: 'copy';">
   Copyright © 2026 Mouleina. Alle Rechte vorbehalten.
