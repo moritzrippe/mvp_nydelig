@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouleina</title>
+  <link rel="icon" type="image/png" href="fav.png">
+  <meta name="theme-color" content="#baff49">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <style>
+    @font-face {
+      font-family: 'head';
+      src: url('fonts/head.otf') format('opentype');
+    }
+
+    @font-face {
+      font-family: 'copy';
+      src: url('fonts/copy.otf') format('opentype');
+    }
+
+    @font-face {
+      font-family: 'copy_bold';
+      src: url('fonts/copy_bold.otf') format('opentype');
+    }
+
+    :root {
+      --accent: #eeeeee;
+      --white: #ffffff;
+      --black: #000000;
+      --spicy_green: #baff49;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background-color: var(--accent);
+      font-family: 'head', serif;
+      color: var(--black);
+      min-height: 100vh;
+    }
+
+    img {
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      user-select: none;
+      pointer-events: none;
+    }
+
+
+  /* ================= HEADER ================= */
+
+    header {
+      backdrop-filter: blur(92px);
+      -webkit-backdrop-filter: blur(92px);
+      border-bottom: 5px solid rgba(186, 255, 73, 1);
+      padding: 20px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      line-height: 1;
+    }
+
+   .logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      height: 100%;
+      margin-left: 0 !important;
+      text-decoration: none;
+      pointer-events: auto; 
+      z-index: 1010;
+    }
+
+    .logo img {
+      height: 15px;
+      display: block;
+      pointer-events: auto;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      right: 32px;
+    }
+
+    nav a {
+      margin-left: 32px;
+      text-decoration: none;
+      font-size: 15px;
+      color: var(--black);
+    }
+
+    .social-icon img {
+      width: 15px;
+      height: auto;
+      display: block;
+    }
+
+    .title-heading {
+      max-width: 1200px;
+      margin: 80px auto 0 auto;
+      padding: 0 32px;
+      color: var(--black);
+      font-size: 25px;
+    }
+
+
+  /* ================= BURGER ================= */
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      position: absolute;
+      right: 32px;
+      z-index: 1100;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .burger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: var(--black);
+    }
+
+
+  /* ================= SIDE MENU ================= */
+
+    .side-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(238, 238, 238, 0.3);
+      backdrop-filter: blur(33px);
+      -webkit-backdrop-filter: blur(33px);
+      z-index: 1050;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .side-menu.open {
+      display: flex;
+    }
+
+    .side-menu a {
+      text-decoration: none;
+      font-size: 17px;
+      color: var(--black);
+      font-family: 'head', serif;
+    }
+
+    .side-menu a:hover {
+      opacity: 0.7;
+    }
+
+    .side-menu-close {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      position: fixed;
+      top: 2.5px;
+      right: 32px;
+      z-index: 1060;
+      background: none;
+      border: none;
+      padding: 0;
+      height: 35px;
+    }
+
+    .side-menu-close span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: var(--black);
+    }
+
+    main {
+      padding: 10px 32px 10px 32px;
+    }
+
+
+  /* ================= GRID ================= */
+
+    .grid {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding-top: 0px;
+    }
+
+
+  /* ================= Photo ================= */
+
+    .photo {
+      width: 500px;
+      text-align: center;
+      color: var(--black);
+      background-color: var(--accent);
+    }
+
+    .photo img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      background-color: var(--spicy_green);
+      border-radius: 32px;
+    }
+
+   .photo .title {
+      margin-top: 16px;
+      margin-bottom: 5px;
+      font-size: 18px;
+      background-color: black; 
+      color: white;        
+      display: inline-block;
+      padding: 10px 30px;   
+      border-radius: 50px
+    }
+
+    footer {
+      margin-top: 120px;
+      padding: 80px 24px;
+      text-align: center;
+      font-size: 10px;
+      color: var(--black);
+      border-top: none;
+    }
+
+    .author-link {
+      color: var(--black);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    .preparation-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .preparation-text {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: left;
+      background-color: var(--white);
+      padding: 32px;
+      border-radius: 32px;
+    }
+
+    .preparation-text p {
+      font-family: 'copy';
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .nav-right { display: none; }
+      .burger { display: flex; }
+      .logo img { height: 14px; }
+      nav a { margin-left: 17px; font-size: 15px; }
+      body { padding-top: 40px; }
+      .title-heading {
+      font-size: 18px;
+      margin: 24px auto 0 auto;
+      padding: 0 16px;
+      }
+      .preparation-text {
+      max-width: 700px;
+      font-family: 'copy';
+      line-height: 1.6;
+      font-size: 16px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body { 
+      padding-top: 40px;
+      overflow-x: hidden;
+      }
+      .title-heading {
+      font-size: 18px;
+      margin: 24px auto 8px auto; 
+      padding: 0 16px;
+      }
+      main {
+      padding: 0px 16px 10px 16px;
+      }
+      .grid { 
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      max-width: 100%;
+      margin-top: 0; 
+      }
+      .photo {
+      padding: 12px;
+      }
+      .photo .title {
+      font-size: 16px;
+      }
+    }
+
+    @media (max-width: 335px) {
+      .logo img { height: 12px; }
+      nav a { margin-left: 10px; font-size: 15px; }
+      body { padding-top: 40px; }
+      .title-heading {
+      font-size: 15px;
+      margin: 24px auto 0 auto;
+      padding: 0 20px;
+      }
+    }
+    
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+     <a href="index.html" class="logo">
+    <img src="logo.png" alt="Logo" draggable="false">
+  </a>
+
+    <div class="nav-right">
+      <a href="index.html" class="active">Rezept des Tages</a>
+      <a href="submit.html" class="active">Rezept einreichen</a>
+      <a href="all_recipes.html">Alle Rezepte</a>
+      <a href="https://www.instagram.com/mouleina/" target="_blank" class="social-icon">
+        <img src="social.png" alt="Instagram" draggable="false">
+      </a>
+    </div>
+
+    <button class="burger" id="burgerBtn" aria-label="Menü öffnen">
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
+
+<div class="side-menu" id="sideMenu">
+  <button class="side-menu-close" id="menuClose" aria-label="Menü schließen">
+    <span></span>
+    <span></span>
+  </button>
+  <a href="index.html" class="active">Rezept des Tages</a>
+  <a href="submit.html">Rezept einreichen</a>
+  <a href="all_recipes.html">Alle Rezepte</a>
+  <a href="https://www.instagram.com/mouleina/" target="_blank">Instagram</a>
+</div>
+
+<div class="title-heading">
+  Rezept des Tages 15.05.2026
+</div>
+<main>
+  <section class="grid">
+  <div class="photo">
+    <img src="images/g1.jpg" alt="Gericht" draggable="false">
+    
+    <div class="title" style="font-family: 'copy_bold';">Carbonara</div>
+  </div>
+</section>
+</main>
+<section class="preparation-section">
+
+<div class="preparation-text">
+  <p>
+    <span style="font-family: 'copy_bold';">
+      Autor: <a href="https://instagram.com/mouleina" target="_blank" class="author-link" style="font-family: 'copy_bold';">Gabriele N.</a><br><br>
+      Zubereitungsdauer: ca. 30 min. <br><br>
+      Zutaten für 2 Portionen: <br>
+    </span>
+
+    <span style="font-family: 'copy';">
+      Spaghetti, 200g <br>
+      Guanciale, 100g<br>
+      2 Eier<br>
+      Salz & schwarzer Pfeffer<br>
+      Parmesan, 80g<br><br>
+    </span>
+
+    <span style="font-family: 'copy_bold';">
+      Zubereitung:<br>
+    </span>
+
+    <span style="font-family: 'copy';">
+      Spaghetti nicht zu weich kochen, abgießen. 
+      Guanciale würfeln und in einer großen Pfanne das Fett auslassen. 
+      In der zwischenzeit Eier und den geriebenen Parmesan vermischen, salzen und pfeffern.
+      Die gekochten Spaghetti zu dem Speck in die Pfanne geben, die Eier-Parmesan-Mischung dazugeben, den Herd ausschalten.
+      Alles so lange verrühren, bis die Eimasse gestockt ist.<br><br>
+      Dazu ist ein grüner Salat und ein Glas gekühlter Weißwein lecker.
+    </span>
+  </p>
+</div>
+
+</section>
+
+<footer style="font-family: 'copy';">
+  Copyright © 2026 Mouleina. Alle Rechte vorbehalten.
+</footer>
+
+<script>
+  const burgerBtn = document.getElementById('burgerBtn');
+  const menuClose = document.getElementById('menuClose');
+  const sideMenu = document.getElementById('sideMenu');
+
+  burgerBtn.addEventListener('click', function () {
+    sideMenu.classList.add('open');
+  });
+
+  menuClose.addEventListener('click', function () {
+    sideMenu.classList.remove('open');
+  });
+</script>
+
+</body>
+</html>
